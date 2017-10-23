@@ -1868,13 +1868,15 @@ axes.doTicks = function(gd, axid, skipTitle) {
                         transform: transform,
                         'text-anchor': anchor
                     });
-                }
-                else {
+                } else {
                     var mjShift =
                         Drawing.bBox(mathjaxGroup.node()).width *
                             {end: -0.5, start: 0.5}[anchor];
                     mathjaxGroup.attr('transform', transform +
                         (mjShift ? 'translate(' + mjShift + ',0)' : ''));
+                }
+                if(d.notShow) {
+                    thisLabel.style('display', 'none');
                 }
             });
         }
@@ -1926,6 +1928,47 @@ axes.doTicks = function(gd, axid, skipTitle) {
                     }
                 }
                 if(autoangle) {
+                    var item;
+                    var maxWidth = 0;
+                    for(i = 0; i < lbbArray.length; i++) {
+                        item = lbbArray[i];
+                        item.right = item.right - item.width / 4 + 1;
+                        if(item.width > maxWidth) {
+                            maxWidth = item.width;
+                        }
+                    }
+                    for(i = 0; i < lbbArray.length - 1; i++) {
+                        if(Lib.bBoxIntersect(lbbArray[i], lbbArray[i + 1])) {
+                            // any overlap at all - set 90 degrees
+                            autoangle = 90;
+                            break;
+                        }
+                    }
+                    if(autoangle === 90) { // Intersects
+                        for(i = 0; i < lbbArray.length; i++) {
+                            item = lbbArray[i];
+                            item.right = item.left + item.width / 2;
+                        }
+                        var min = lbbArray[lbbArray.length - 1].left - lbbArray[0].left;
+                        var rem = lbbArray[0];
+                        for(i = 0; i < lbbArray.length - 1; i++) {
+                            if(Lib.bBoxIntersect(rem, lbbArray[i + 1])) {
+                                tickLabels[0][i + 1].__data__.notShow = true;
+                            } else {
+                                var dist = lbbArray[i + 1].left - rem.left;
+                                rem = lbbArray[i + 1];
+                                if(dist < min) {
+                                    min = dist;
+                                }
+                            }
+                        }
+                        if(min > maxWidth) {
+                            autoangle = 0;
+                        } else if(min > maxWidth * 3 / 4) {
+                            autoangle = 30;
+                        }
+                    }
+
                     var tickspacing = Math.abs(
                             (vals[vals.length - 1].x - vals[0].x) * ax._m
                         ) / (vals.length - 1);
