@@ -47,7 +47,7 @@ var modeBarButtons = module.exports = {};
 
 modeBarButtons.toImage = {
     name: 'toImage',
-    title: 'Download plot as a png',
+    title: 'Сохранить график как png',
     icon: Icons.camera,
     click: function(gd) {
         var format = 'png';
@@ -71,7 +71,7 @@ modeBarButtons.toImage = {
 
 modeBarButtons.sendDataToCloud = {
     name: 'sendDataToCloud',
-    title: 'Save and edit plot in cloud',
+    title: 'Скачать и редактировать в облаке',
     icon: Icons.disk,
     click: function(gd) {
         Plots.sendDataToCloud(gd);
@@ -80,7 +80,7 @@ modeBarButtons.sendDataToCloud = {
 
 modeBarButtons.zoom2d = {
     name: 'zoom2d',
-    title: 'Zoom',
+    title: 'Масштаб',
     attr: 'dragmode',
     val: 'zoom',
     icon: Icons.zoombox,
@@ -89,7 +89,7 @@ modeBarButtons.zoom2d = {
 
 modeBarButtons.pan2d = {
     name: 'pan2d',
-    title: 'Pan',
+    title: 'Перетащить',
     attr: 'dragmode',
     val: 'pan',
     icon: Icons.pan,
@@ -98,7 +98,7 @@ modeBarButtons.pan2d = {
 
 modeBarButtons.select2d = {
     name: 'select2d',
-    title: 'Box Select',
+    title: 'Выделить прямоугольную область',
     attr: 'dragmode',
     val: 'select',
     icon: Icons.selectbox,
@@ -107,7 +107,7 @@ modeBarButtons.select2d = {
 
 modeBarButtons.lasso2d = {
     name: 'lasso2d',
-    title: 'Lasso Select',
+    title: 'Лассо',
     attr: 'dragmode',
     val: 'lasso',
     icon: Icons.lasso,
@@ -116,7 +116,7 @@ modeBarButtons.lasso2d = {
 
 modeBarButtons.zoomIn2d = {
     name: 'zoomIn2d',
-    title: 'Zoom in',
+    title: 'Увеличить',
     attr: 'zoom',
     val: 'in',
     icon: Icons.zoom_plus,
@@ -125,7 +125,7 @@ modeBarButtons.zoomIn2d = {
 
 modeBarButtons.zoomOut2d = {
     name: 'zoomOut2d',
-    title: 'Zoom out',
+    title: 'Уменьшить',
     attr: 'zoom',
     val: 'out',
     icon: Icons.zoom_minus,
@@ -134,7 +134,7 @@ modeBarButtons.zoomOut2d = {
 
 modeBarButtons.autoScale2d = {
     name: 'autoScale2d',
-    title: 'Autoscale',
+    title: 'Автомасштаб',
     attr: 'zoom',
     val: 'auto',
     icon: Icons.autoscale,
@@ -143,7 +143,7 @@ modeBarButtons.autoScale2d = {
 
 modeBarButtons.resetScale2d = {
     name: 'resetScale2d',
-    title: 'Reset axes',
+    title: 'Сбросить',
     attr: 'zoom',
     val: 'reset',
     icon: Icons.home,
@@ -152,7 +152,7 @@ modeBarButtons.resetScale2d = {
 
 modeBarButtons.hoverClosestCartesian = {
     name: 'hoverClosestCartesian',
-    title: 'Show closest data on hover',
+    title: 'Показать ближайшие данные',
     attr: 'hovermode',
     val: 'closest',
     icon: Icons.tooltip_basic,
@@ -162,7 +162,7 @@ modeBarButtons.hoverClosestCartesian = {
 
 modeBarButtons.hoverCompareCartesian = {
     name: 'hoverCompareCartesian',
-    title: 'Compare data on hover',
+    title: 'Сравнить данные',
     attr: 'hovermode',
     val: function(gd) {
         return gd._fullLayout._isHoriz ? 'y' : 'x';
@@ -256,7 +256,7 @@ function handleCartesian(gd, ev) {
 
 modeBarButtons.zoom3d = {
     name: 'zoom3d',
-    title: 'Zoom',
+    title: 'Масштаб',
     attr: 'scene.dragmode',
     val: 'zoom',
     icon: Icons.zoombox,
@@ -265,7 +265,7 @@ modeBarButtons.zoom3d = {
 
 modeBarButtons.pan3d = {
     name: 'pan3d',
-    title: 'Pan',
+    title: 'Перетащить',
     attr: 'scene.dragmode',
     val: 'pan',
     icon: Icons.pan,
@@ -274,7 +274,7 @@ modeBarButtons.pan3d = {
 
 modeBarButtons.orbitRotation = {
     name: 'orbitRotation',
-    title: 'orbital rotation',
+    title: 'Вращать',
     attr: 'scene.dragmode',
     val: 'orbit',
     icon: Icons['3d_rotate'],
@@ -283,7 +283,7 @@ modeBarButtons.orbitRotation = {
 
 modeBarButtons.tableRotation = {
     name: 'tableRotation',
-    title: 'turntable rotation',
+    title: 'Вращать',
     attr: 'scene.dragmode',
     val: 'turntable',
     icon: Icons['z-axis'],
@@ -309,7 +309,7 @@ function handleDrag3d(gd, ev) {
 
 modeBarButtons.resetCameraDefault3d = {
     name: 'resetCameraDefault3d',
-    title: 'Reset camera to default',
+    title: 'Сбросить',
     attr: 'resetDefault',
     icon: Icons.home,
     click: handleCamera3d
@@ -317,7 +317,7 @@ modeBarButtons.resetCameraDefault3d = {
 
 modeBarButtons.resetCameraLastSave3d = {
     name: 'resetCameraLastSave3d',
-    title: 'Reset camera to last save',
+    title: 'Предыдущая позиция камеры',
     attr: 'resetLastSave',
     icon: Icons.movie,
     click: handleCamera3d
@@ -348,7 +348,7 @@ function handleCamera3d(gd, ev) {
 
 modeBarButtons.hoverClosest3d = {
     name: 'hoverClosest3d',
-    title: 'Toggle show closest data on hover',
+    title: 'Свернуть ближайшие данные',
     attr: 'hovermode',
     val: null,
     toggle: true,
@@ -409,7 +409,7 @@ function handleHover3d(gd, ev) {
 
 modeBarButtons.zoomInGeo = {
     name: 'zoomInGeo',
-    title: 'Zoom in',
+    title: 'Увеличить',
     attr: 'zoom',
     val: 'in',
     icon: Icons.zoom_plus,
@@ -418,7 +418,7 @@ modeBarButtons.zoomInGeo = {
 
 modeBarButtons.zoomOutGeo = {
     name: 'zoomOutGeo',
-    title: 'Zoom out',
+    title: 'Уменьшить',
     attr: 'zoom',
     val: 'out',
     icon: Icons.zoom_minus,
@@ -427,7 +427,7 @@ modeBarButtons.zoomOutGeo = {
 
 modeBarButtons.resetGeo = {
     name: 'resetGeo',
-    title: 'Reset',
+    title: 'Сбросить',
     attr: 'reset',
     val: null,
     icon: Icons.autoscale,
@@ -436,7 +436,7 @@ modeBarButtons.resetGeo = {
 
 modeBarButtons.hoverClosestGeo = {
     name: 'hoverClosestGeo',
-    title: 'Toggle show closest data on hover',
+    title: 'Свернуть ближайшие данные',
     attr: 'hovermode',
     val: null,
     toggle: true,
@@ -468,7 +468,7 @@ function handleGeo(gd, ev) {
 
 modeBarButtons.hoverClosestGl2d = {
     name: 'hoverClosestGl2d',
-    title: 'Toggle show closest data on hover',
+    title: 'Свернуть ближайшие данные',
     attr: 'hovermode',
     val: null,
     toggle: true,
@@ -479,7 +479,7 @@ modeBarButtons.hoverClosestGl2d = {
 
 modeBarButtons.hoverClosestPie = {
     name: 'hoverClosestPie',
-    title: 'Toggle show closest data on hover',
+    title: 'Свернуть ближайшие данные',
     attr: 'hovermode',
     val: 'closest',
     icon: Icons.tooltip_basic,
@@ -505,7 +505,7 @@ function toggleHover(gd) {
 
 modeBarButtons.toggleHover = {
     name: 'toggleHover',
-    title: 'Toggle show closest data on hover',
+    title: 'Свернуть ближайшие данные',
     attr: 'hovermode',
     val: null,
     toggle: true,
@@ -523,7 +523,7 @@ modeBarButtons.toggleHover = {
 
 modeBarButtons.resetViews = {
     name: 'resetViews',
-    title: 'Reset views',
+    title: 'Сбросить вид',
     icon: Icons.home,
     click: function(gd, ev) {
         var button = ev.currentTarget;
@@ -542,7 +542,7 @@ modeBarButtons.resetViews = {
 
 modeBarButtons.toggleSpikelines = {
     name: 'toggleSpikelines',
-    title: 'Toggle Spike Lines',
+    title: 'Свернуть линии',
     icon: Icons.spikeline,
     attr: '_cartesianSpikesEnabled',
     val: 'on',
@@ -577,7 +577,7 @@ function setSpikelineVisibility(gd) {
 
 modeBarButtons.resetViewMapbox = {
     name: 'resetViewMapbox',
-    title: 'Reset view',
+    title: 'Сбросить вид',
     attr: 'reset',
     icon: Icons.home,
     click: function(gd) {
